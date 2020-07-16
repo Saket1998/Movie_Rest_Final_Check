@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dateFormat" class="java.text.SimpleDateFormat">
+		<constructor-arg value="dd/MM/yyyy" />
+	</bean>
+
+	<bean id="movie1" class="com.cognizant.model.Movie">
+		<property name="id" value="1" />
+		<property name="title" value="Avengers" />
+		<property name="boxOffice" value="2164,879,789" />
+		<property name="active" value="Yes" />
+		<property name="dateOfLaunch">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="15/03/2017" />
+			</bean>
+		</property>
+		<property name="genre" value="Science Fiction" />
+		<property name="hasTeaser" value="Yes" />
+	</bean>
+	<bean id="movie2" class="com.cognizant.model.Movie">
+		<property name="id" value="2" />
+		<property name="title" value="Avatar" />
+		<property name="boxOffice" value="2174,879,789" />
+		<property name="active" value="Yes" />
+		<property name="dateOfLaunch">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="23/12/2017" />
+			</bean>
+		</property>
+		<property name="genre" value="Superhero" />
+		<property name="hasTeaser" value="No" />
+	</bean>
+	<bean id="movie3" class="com.cognizant.model.Movie">
+		<property name="id" value="3" />
+		<property name="title" value="Titanic" />
+		<property name="boxOffice" value="2184,879,789" />
+		<property name="active" value="Yes" />
+		<property name="dateOfLaunch">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="21/08/2018" />
+			</bean>
+		</property>
+		<property name="genre" value="Romance" />
+		<property name="hasTeaser" value="No" />
+	</bean>
+	<bean id="movie4" class="com.cognizant.model.Movie">
+		<property name="id" value="4" />
+		<property name="title" value="Avengers Endgame" />
+		<property name="boxOffice" value="2764,879,789" />
+		<property name="active" value="Yes" />
+		<property name="dateOfLaunch">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="02/07/2019" />
+			</bean>
+		</property>
+		<property name="genre" value="Superhero" />
+		<property name="hasTeaser" value="Yes" />
+	</bean>
+	<bean id="movie5" class="com.cognizant.model.Movie">
+		<property name="id" value="5" />
+		<property name="title" value="Jurassic World" />
+		<property name="boxOffice" value="2964,879,789" />
+		<property name="active" value="No" />
+		<property name="dateOfLaunch">
+			<bean factory-bean="dateFormat" factory-method="parse">
+				<constructor-arg value="02/07/2017" />
+			</bean>
+		</property>
+		<property name="genre" value="Science Fiction" />
+		<property name="hasTeaser" value="Yes" />
+	</bean>
+
+
+
+	<bean id="movieList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="movie1" />
+				<ref bean="movie2" />
+				<ref bean="movie3" />
+				<ref bean="movie4" />
+				<ref bean="movie5" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+</beans>
